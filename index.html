@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>A Little Miracle Has Arrived | Naming Ceremony Invitation</title>
 <meta name="description" content="Join us to celebrate our baby's Naming Ceremony — a magical reveal of our little one's name.">
-<meta name="theme-color" content="#8fd0ff">
+<meta name="theme-color" content="#d4af37">
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,20 +26,20 @@
    ROOT THEME VARIABLES
 ============================================================ */
 :root{
-  --pink:#ffd6e8;
-  --pink-deep:#ff9ebb;
-  --sky:#c3e6ff;
-  --sky-deep:#8fd0ff;
-  --lavender:#e6d7ff;
-  --lavender-deep:#c9a6ff;
-  --gold:#f0c869;
-  --gold-deep:#d4af37;
-  --white:#fffaf6;
-  --text:#3a2e3f;
-  --text-soft:#6b5b6e;
-  --glass-bg:rgba(255,255,255,0.4);
-  --glass-border:rgba(255,255,255,0.6);
-  --shadow:0 10px 40px rgba(150,100,150,0.18);
+  --pink:#f0dcc3;
+  --pink-deep:#7a1f2b;
+  --sky:#faf1e0;
+  --sky-deep:#f0e0c0;
+  --lavender:#e8c9a0;
+  --lavender-deep:#d4a857;
+  --gold:#d4af37;
+  --gold-deep:#8b6914;
+  --white:#fffaf0;
+  --text:#3a1f1a;
+  --text-soft:#6b4a3d;
+  --glass-bg:rgba(255,250,240,0.55);
+  --glass-border:rgba(139,105,20,0.3);
+  --shadow:0 10px 40px rgba(122,31,43,0.18);
   --font-head:'Playfair Display', serif;
   --font-body:'Poppins', sans-serif;
   --font-script:'Great Vibes', cursive;
@@ -48,20 +48,20 @@
   color-scheme: light;
 }
 [data-theme="dark"]{
-  --pink:#3a2140;
-  --pink-deep:#5a2f52;
-  --sky:#1c2544;
-  --sky-deep:#233062;
-  --lavender:#251a3d;
-  --lavender-deep:#33224f;
-  --gold:#f5d98b;
-  --gold-deep:#e8c465;
-  --white:#161022;
-  --text:#f4ecff;
-  --text-soft:#c9bfe0;
-  --glass-bg:rgba(30,20,50,0.45);
-  --glass-border:rgba(255,255,255,0.12);
-  --shadow:0 10px 40px rgba(0,0,0,0.5);
+  --pink:#4a1520;
+  --pink-deep:#c0435a;
+  --sky:#2b1210;
+  --sky-deep:#3a1a16;
+  --lavender:#241009;
+  --lavender-deep:#3a2010;
+  --gold:#e8c87a;
+  --gold-deep:#d4af37;
+  --white:#1a0f0c;
+  --text:#f7e9d0;
+  --text-soft:#d4b896;
+  --glass-bg:rgba(40,15,10,0.55);
+  --glass-border:rgba(212,175,55,0.25);
+  --shadow:0 10px 40px rgba(0,0,0,0.55);
   color-scheme: dark;
 }
 
@@ -84,7 +84,7 @@ body{
 h1,h2,h3,h4,.font-head{font-family:var(--font-head);}
 .font-script{font-family:var(--font-script);}
 a{text-decoration:none;color:inherit;}
-::selection{background:var(--gold); color:#3a2e3f;}
+::selection{background:var(--gold); color:#3a1f1a;}
 
 /* Skip link for accessibility */
 .skip-link{
@@ -104,7 +104,7 @@ a{text-decoration:none;color:inherit;}
 #loader{
   position:fixed; inset:0; z-index:99999;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
-  background:linear-gradient(135deg,var(--pink),var(--lavender));
+  background:linear-gradient(135deg,var(--sky),var(--lavender));
   transition:opacity .8s ease, visibility .8s ease;
 }
 #loader.hide{opacity:0; visibility:hidden; pointer-events:none;}
@@ -585,7 +585,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <button class="reveal-modal-close" id="nameModalClose" aria-label="Close name reveal">&times;</button>
     <div class="baby-frame small" aria-hidden="true">👶</div>
     <p class="welcome-line">Welcome Our Little Princess</p>
-    <h2 class="baby-name" id="babyNameDisplayModal" aria-label="Aanya"></h2>
+    <h2 class="baby-name" id="babyNameDisplayModal" aria-label="Aadhya"></h2>
     <p class="name-blessing">"May your life always shine with happiness, love and endless blessings."</p>
   </div>
 </div>
@@ -622,7 +622,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <div id="nameRevealedState" hidden>
     <div class="baby-frame">👶</div>
     <p class="welcome-line">Welcome Our Little Princess</p>
-    <h2 class="baby-name" id="babyNameDisplay" aria-label="Aanya"></h2>
+    <h2 class="baby-name" id="babyNameDisplay" aria-label="Aadhya"></h2>
     <p class="name-blessing">
       "May your life always shine with happiness, love and endless blessings."
     </p>
@@ -747,7 +747,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
    CONFIG — edit these to personalize the page
 ============================================================ */
 const CONFIG = {
-  babyName: "Aanya",
+  babyName: "Aadhya",
   gender: "girl", // "girl" | "boy"
   familyName: "Vetri & Joe",
   eventDateISO: "2026-07-19T19:00:00",
@@ -1032,11 +1032,11 @@ function fireConfetti(){
   const duration = 2200;
   const end = Date.now() + duration;
   (function frame(){
-    confetti({ particleCount: 6, angle: 60, spread: 70, origin: { x: 0 }, colors: ['#f0c869','#ffd6e8','#c9a6ff','#ffffff'] });
-    confetti({ particleCount: 6, angle: 120, spread: 70, origin: { x: 1 }, colors: ['#f0c869','#ffd6e8','#c9a6ff','#ffffff'] });
+    confetti({ particleCount: 6, angle: 60, spread: 70, origin: { x: 0 }, colors: ['#d4af37','#8b6914','#7a1f2b','#fffaf0'] });
+    confetti({ particleCount: 6, angle: 120, spread: 70, origin: { x: 1 }, colors: ['#d4af37','#8b6914','#7a1f2b','#fffaf0'] });
     if (Date.now() < end) requestAnimationFrame(frame);
   })();
-  confetti({ particleCount: 150, spread: 100, origin: { y: 0.5 }, colors: ['#f0c869','#ffd6e8','#c9a6ff'] });
+  confetti({ particleCount: 150, spread: 100, origin: { y: 0.5 }, colors: ['#d4af37','#8b6914','#7a1f2b'] });
 }
 
 function fireSparkles(){
@@ -1054,7 +1054,7 @@ function fireSparkles(){
     particles.forEach(p => {
       p.x += p.vx; p.y += p.vy; p.life -= 1;
       ctx.globalAlpha = Math.max(p.life/90, 0);
-      ctx.fillStyle = '#f0c869';
+      ctx.fillStyle = '#d4af37';
       ctx.beginPath(); ctx.arc(p.x,p.y,p.size,0,Math.PI*2); ctx.fill();
     });
     frame++;
