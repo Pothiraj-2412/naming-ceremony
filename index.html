@@ -204,22 +204,9 @@ a{text-decoration:none;color:inherit;}
   font-size:0.95rem;
 }
 .icon-btn:hover{transform:scale(1.1) rotate(8deg); background:var(--gold);}
-.nav-toggle-btn{display:none;}
-#navDrawer{
-  position:fixed; top:0; right:-100%; width:78vw; max-width:320px; height:100vh; z-index:1100;
-  padding:90px 30px; transition:right .45s cubic-bezier(.77,0,.18,1);
-}
-#navDrawer.open{right:0;}
-#navDrawer .nav-links{flex-direction:column; gap:22px;}
-#navDrawer a{font-size:1.05rem;}
-.drawer-backdrop{
-  position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:1050; opacity:0; pointer-events:none; transition:opacity .4s ease;
-}
-.drawer-backdrop.show{opacity:1; pointer-events:auto;}
 
 @media (max-width:900px){
   .nav-links{display:none;}
-  .nav-toggle-btn{display:flex;}
 }
 
 /* ============================================================
@@ -521,21 +508,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <div class="nav-actions">
     <button class="icon-btn" id="themeToggle" aria-label="Toggle dark and light mode"><i class="fa-solid fa-moon"></i></button>
     <button class="icon-btn" id="musicToggle" aria-label="Toggle background music"><i class="fa-solid fa-music"></i></button>
-    <button class="icon-btn nav-toggle-btn" id="navToggle" aria-label="Open navigation menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
   </div>
 </nav>
-
-<div class="drawer-backdrop" id="drawerBackdrop"></div>
-<div id="navDrawer" class="glass-card">
-  <ul class="nav-links">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#nameReveal">Name</a></li>
-    <li><a href="#parents">Parents</a></li>
-    <li><a href="#event">Event</a></li>
-    <li><a href="#blessings">Blessings</a></li>
-    <li><a href="#journey">Journey</a></li>
-  </ul>
-</div>
 
 <!-- Background music (replace src with your own lullaby file) -->
 <audio id="bgMusic" loop preload="none">
@@ -820,28 +794,12 @@ musicToggle.addEventListener('click', () => {
 setMusicIcon();
 
 /* ============================================================
-   NAV: scroll state, drawer, active link, smooth scroll
+   NAV: scroll state, active link, smooth scroll
 ============================================================ */
 const mainNav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => {
   mainNav.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive:true });
-
-const navToggle = document.getElementById('navToggle');
-const navDrawer = document.getElementById('navDrawer');
-const drawerBackdrop = document.getElementById('drawerBackdrop');
-function closeDrawer(){
-  navDrawer.classList.remove('open');
-  drawerBackdrop.classList.remove('show');
-  navToggle.setAttribute('aria-expanded','false');
-}
-navToggle.addEventListener('click', () => {
-  const open = navDrawer.classList.toggle('open');
-  drawerBackdrop.classList.toggle('show', open);
-  navToggle.setAttribute('aria-expanded', String(open));
-});
-drawerBackdrop.addEventListener('click', closeDrawer);
-document.querySelectorAll('#navDrawer a').forEach(a => a.addEventListener('click', closeDrawer));
 
 const sectionLinks = document.querySelectorAll('.nav-links a');
 const sections = Array.from(sectionLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
